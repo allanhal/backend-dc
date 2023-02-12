@@ -38,7 +38,7 @@ O objetivo deste projeto é desenvolver uma API RESTful para o e-commerce, permi
 - Toda vez que possível, dê um `git pull origin main` para ter a versão mais atual do projeto.
 
 ❓ **Dúvidas com Git e GitHub?**
-- Assista ao [vídeo](https://www.youtube.com/watch?v=IMerCpaT_zM).
+- Assista ao [vídeo](https://www.youtube.com/watch?v=IMerCpaT_zM);
 - Peça ajuda no(s) grupo(s) ou a(os) colega(s).
 
 ## Regras
