@@ -1,6 +1,6 @@
 # Back-End E-commerce - Digital College
 
-Este é o repositório oficial para o projeto de desenvolvimento do back-end do e-commerce Digital Store, realizado pela equipe da Digital College sob a orientação e acompanhanhamenot do professor [Allan Araújo](https://github.com/allanhal).
+Este é o repositório oficial para o projeto de desenvolvimento do back-end do e-commerce Digital Store, realizado pela equipe da Digital College sob a orientação e acompanhanhamento do professor [Allan Araújo](https://github.com/allanhal).
 
 ## Equipe
 
