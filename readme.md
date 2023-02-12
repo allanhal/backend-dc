@@ -16,7 +16,7 @@ Este é o repositório oficial para o projeto de desenvolvimento do back-end do 
 
 ## Objetivo
 
-O objetivo deste projeto é desenvolver uma API RESTful para o e-commerce, permitindo a integração com o front-end e outras aplicações, além de facilitar o gerenciamento dos dados.
+O objetivo deste projeto é desenvolver uma API RESTful para o e-commerce Digital Store, permitindo a integração com o front-end e outras aplicações, além de facilitar o gerenciamento dos dados.
 
 ## Tecnologias utilizadas
 
