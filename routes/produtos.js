@@ -3,8 +3,16 @@ var router = express.Router();
 var fs = require('fs');
 const { path } = require('../app');
 
+
+//ROTA BUSCANDO TODOS OS PRODUTOS DO ARQUIVO LIDO COM O MODULO FS
 router.get('/', function(req, res, next) {
-    res.send('Lista de produtos')
+    fs.readFile('./data/produtos.json',"utf-8",(err, data)=> {
+
+        const produtos = JSON.parse(data)
+        res.send(produtos)
+    
+    })
+    
 });
 router.post('/', function(req, res, next) {
     res.send('Criar produto')
