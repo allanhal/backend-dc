@@ -45,7 +45,7 @@ O objetivo deste projeto é desenvolver uma API RESTful para o e-commerce, permi
 
 - A data de entrega é **19/02/2023**;
 - As tarefas serão feitas em dupla (exceção Emmanuel) que deverão comunicar-se entre si;
-- Toda a comunicação acontecerá através do [Discord](https://discord.gg/yXaX529U) ou grupo no WhatsApp;
+- Toda a comunicação acontecerá através do [Discord](https://discord.gg/yXaX529U);
 - Todas as tarefas estão no **Trello** com os responsáveis. É importantante que atualizem os status;
 - Enviou o Pull Request? Comunique imediatamente no(s) grupo(s);
 - **Sem desculpas**. Seja responsável e não deixe a sua atividade para a última hora. Sua dedicação dirá muito sobre o profissional que você se tornará!
