@@ -11,8 +11,8 @@ Projeto feito no Node.JS com Express.
 <li>José Antonio</li>
 <li>Antonio Rodrigues</li>
 <li>Ivan Praciano</li>
-<li>Nivea</li>
-<li>Andre</li>
+<li>Nivea Natalia</li>
+<li>Andre Soares</li>
 
 </ul>
 
@@ -23,4 +23,7 @@ EM CONSTRUÇÃO
 
 ## DOCUMENTAÇÃO 
 
-EM CONSTRUÇÃO
+Em primeiro momento criação de uma API que ler o Arquivos em JSON, utilizando o modulo FS.
+Essa API será integrada com o projeto front-end https://github.com/DarlanMendes/digital-store
+
+
