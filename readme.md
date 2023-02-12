@@ -31,7 +31,7 @@ O objetivo deste projeto é desenvolver uma API RESTful para o e-commerce, permi
 - Faça o commit das suas alterações: `git commit -m 'descricao da sua alteracao'`;
 - Faça o push para a sua branch: `git push origin minha-funcionalidade-nome-dupla`;
 - Após finalizar a tarefa, envie suas alterações para o repositório remoto: `git push origin main`;
-- Vá até a página do repositório no GitHub e clique no botão "New pull request". Selecione a branch que você acabou de enviar como a "branch base" e a "branch comparação", escreva uma descrição detalhada da sua alteração e clique em "Create pull request".
+- Vá até a página do repositório no GitHub e clique no botão `New pull request`. Selecione a branch que você acabou de enviar como a "branch base" e a "branch comparação", escreva uma descrição detalhada da sua alteração e clique em `Create pull request`.
 
 ⚠️ **ATENÇÃO**
 - Certifique-se sempre de que você está na sua branch;
@@ -43,7 +43,7 @@ O objetivo deste projeto é desenvolver uma API RESTful para o e-commerce, permi
 
 ## Regras
 
-- A data de entrega é **19/02/2023*;
+- A data de entrega é **19/02/2023**;
 - As tarefas serão feitas em dupla (exceção Emmanuel) que deverão comunicar-se entre si;
 - Toda a comunicação acontecerá através do [Discord](https://discord.gg/yXaX529U) ou grupo no WhatsApp;
 - Todas as tarefas estão no **Trello** com os responsáveis. É importantante que atualizem os status;
