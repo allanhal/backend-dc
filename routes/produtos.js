@@ -5,21 +5,31 @@ const { path } = require('../app');
 
 
 // Listar produtos Lucas e Wesley
-router.get('/', function(req, res, next) {
-    res.send('Lista de produtos')
+router.get('/', function (req, res, next) {
+    fs.readFile('./data/produtos.json', "utf8", (err, data) => {
+
+        res.send(data)
+    })
 });
 
 
 
 // Listar produtos por ID Guilherme e Hélio
-router.get('/', function(req, res, next) {
-    res.send('Lista de produtos')
+router.get('/:id', function (req, res, next) {
+    fs.readFile('./data/produtos.json', "utf8", (err, data) => {
+        const produtos = JSON.parse(data)
+        const id = req.params.id
+
+        const produtoProcurado = produtos.find((produto) => produto.id === id)
+
+        res.send(produtoProcurado)
+    })
 });
 
 
 
 // Criar produtos Deivid e Igor
-router.post('/', function(req, res, next) {
+router.post('/', function (req, res, next) {
     res.send('Criar produto')
 });
 
@@ -27,7 +37,17 @@ router.post('/', function(req, res, next) {
 
 // Atualizar produtos André e Rian
 function update(req, res, next) {
-    res.send('Alterar/Update produto ' + req.params.id)
+    fs.readFile('./data/produtos.json', "utf8", (err, data) => { //Lê o arquivo
+        const produtos = JSON.parse(data)
+        const id = req.params.id //Esse id é no id que eu quero alterar
+
+        const produtoRequisitado = produtos.find((produto) => produto.id === id)
+        const produtoAlterado = {...produtoRequisitado, ...req.body};
+
+        fs.writeFileSync('./data/produtos.json', JSON.stringify(produtoAlterado))// acho que o problema ta aqui 
+
+        res.send(produtoAlterado)
+    })
 }
 router.put('/:id', update);
 router.patch('/:id', update);
@@ -35,8 +55,8 @@ router.patch('/:id', update);
 
 
 // Apagar produtos Emmanuel
-router.delete('/:id', function(req, res, next) {
-    fs.readFile('./data/produtos.json',"utf8", (err, data) => {
+router.delete('/:id', function (req, res, next) {
+    fs.readFile('./data/produtos.json', "utf8", (err, data) => {
         const produtos = JSON.parse(data)
         const id = req.params.id
 

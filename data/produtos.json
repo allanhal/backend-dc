@@ -1,19 +1,9 @@
-[
-  {
-    "categoria": "Calçado",
-    "titulo": "Tenis Naike",
-    "descricao": "Pula altão",
-    "valor": 100,
-    "desconto": 10,
-    "img": "https://loremflickr.com/640/480/abstract",
-    "id": "1"
-  },
-  {
-    "categoria": "Calçado",
-    "titulo": "Tenis Miss Uno",
-    "descricao": "Pula altão",
-    "valor": 80,
-    "img": "https://loremflickr.com/640/480/abstract",
-    "id": "3"
-  }
-]
+{
+  "categoria": "Chinelo",
+  "titulo": "Tenis Naike",
+  "descricao": "Pula altão",
+  "valor": 100,
+  "desconto": 10,
+  "img": "https://loremflickr.com/640/480/abstract",
+  "id": "1"
+}
