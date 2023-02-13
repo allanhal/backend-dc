@@ -14,6 +14,28 @@ router.get('/', function(req, res, next) {
     })
     
 });
+//Rota para buscar um produto individualmente 
+router.get('/:id', function(req, res, next) {
+    fs.readFile('./data/produtos.json',"utf-8",(err, data)=> {
+        const {id}= req.params
+        
+         try{const produtos = JSON.parse(data)
+          
+        const produtoSelecionado = produtos.find((produto)=>produto.id===id)
+        if(produtoSelecionado){
+            res.send(produtoSelecionado)
+        }else{
+            res.send("Nenhum produto encontrado para essa especificação")
+        }
+       }
+       catch{
+        res.send('Ocorreu um erro:'+err)
+       }
+         
+    
+    })
+    
+});
 router.post('/', function(req, res, next) {
     res.send('Criar produto')
 });
