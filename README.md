@@ -9,7 +9,7 @@ Projeto feito no Node.JS com Express com API RESTFUL. Desenvolvido por alunos da
 <li>Darlan Mendes</li>
 <li>Emerson Souza</li>
 <li>José Antonio</li>
-<li>Antonio Rodrigues</li
+ <li>Antonio Rodrigues</li>
 <li>Matheus Freire</li>
 <li>Ivan Praciano</li>
 <li>Nivea Natalia</li>
