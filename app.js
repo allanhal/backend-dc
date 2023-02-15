@@ -4,6 +4,7 @@ var logger = require("morgan"); // lib lib log (coloca no console o que esta aco
 
 var indexRouter = require("./routes/index");
 var produtosRouter = require("./routes/produtos");
+const bodyParser = require("body-parser");
 
 var app = express();
 
@@ -25,5 +26,7 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.send(err.message);
 });
+
+app.use(bodyParser.json())
 
 module.exports = app;
