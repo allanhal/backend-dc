@@ -8,10 +8,13 @@ const { path } = require('../app');
 //ROTA BUSCANDO TODOS OS PRODUTOS DO ARQUIVO LIDO COM O MODULO FS
 router.get('/', function (req, res, next) {
     fs.readFile('./data/produtos.json', "utf-8", (err, data) => {
-
-        const produtos = JSON.parse(data)
-        res.send(produtos)
-
+        try{
+            const produtos = JSON.parse(data)
+            res.send(produtos)    
+        } catch {
+            res.send('Ocorreu um erro: ' + err)
+        }
+       
     })
 
 });
@@ -34,7 +37,7 @@ router.get('/search', function (req, res, next) {
             }
 
         } catch (erro) {
-            res.send("Ocorreu um erro:", erro)
+            res.send("Ocorreu um erro:" + erro)
         }
 
     })
