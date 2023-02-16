@@ -30,7 +30,21 @@ router.get('/:id', function (req, res, next) {
 
 // Criar produtos Deivid e Igor
 router.post('/', function (req, res, next) {
-    res.send('Criar produto')
+    fs.readFile('./data/produtos.json', "utf8", (err, data) => { 
+        const produtos = JSON.parse(data)
+        
+        const maiorId = produtos.reduce((max, obj) => {
+            return obj.id > max ? obj.id : max;
+        }, 0);
+        const novoId = parseInt(maiorId) + 1;
+        const produtoNovo = {...req.body };
+
+        produtoNovo.id = novoId;
+        produtos.push(produtoNovo)
+        fs.writeFileSync('./data/produtos.json', JSON.stringify(produtos))
+
+        res.send(produtoNovo)
+    })
 });
 
 
@@ -42,9 +56,10 @@ function update(req, res, next) {
         const id = req.params.id //Esse id é no id que eu quero alterar
 
         const produtoRequisitado = produtos.find((produto) => produto.id === id)
-        const produtoAlterado = {...produtoRequisitado, ...req.body};
+        const produtoAlterado = { ...produtoRequisitado, ...req.body };
+        produtos[id-1] = produtoAlterado
 
-        fs.writeFileSync('./data/produtos.json', JSON.stringify(produtoAlterado))// acho que o problema ta aqui 
+        fs.writeFileSync('./data/produtos.json', JSON.stringify(produtos))
 
         res.send(produtoAlterado)
     })
