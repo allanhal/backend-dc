@@ -33,6 +33,11 @@ utilizando:  `npm install` no terminal
 <br/>
 Terminado a instalação utilize `npm start` para rodar o servidor local.
 
+Para testar as rotas do produto Acesse: `http://localhost:3000/produtos/`
+
+Para testar a rota que busca os produtos baseado em sua categoria utilizar
+<br/>`http://localhost:3000/produtos/search?palavra_chave=categoria&infto=calçado`
+
 Em primeiro momento criação de uma API que ler o Arquivos em JSON, utilizando o modulo FS.
 Essa API será integrada com o projeto front-end <a href="https://github.com/DarlanMendes/digital-store">Projeto DRIP-STORE</a>. 
 
