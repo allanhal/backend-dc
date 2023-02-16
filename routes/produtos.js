@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var fs = require('fs');
+const { stringify } = require('querystring');
 const { path } = require('../app');
 
 
@@ -14,6 +15,31 @@ router.get('/', function(req, res, next) {
     })
     
 });
+//Rota para busca por palavra-chave
+router.get('/search',function(req,res,next){
+    fs.readFile('./data/produtos.json',"utf-8",(err, data)=> {
+        if(err){
+            res.send("Ocorreu um erro na sua busca")
+        }
+        try{
+            const produtos = JSON.parse(data)
+            const {palavra_chave,info} = req.query
+           
+            
+            let produtoBuscado = produtos.filter((produto)=>produto[`${palavra_chave}`].toString().toLowerCase() === info)
+            if(produtoBuscado){
+                res.send(produtoBuscado)
+            }else{
+                res.send("Nenhum produto encontrado para esssas especificacoes")
+            }
+
+        }catch(erro){
+            res.send("Ocorreu um erro:", erro)
+        }
+    
+    })
+})
+
 //Rota para buscar um produto individualmente 
 router.get('/:id', function(req, res, next) {
     fs.readFile('./data/produtos.json',"utf-8",(err, data)=> {
@@ -36,6 +62,7 @@ router.get('/:id', function(req, res, next) {
     })
     
 });
+
 router.post('/', function(req, res, next) {
     res.send('Criar produto')
 });
