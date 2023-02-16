@@ -39,7 +39,7 @@ router.get('/search',function(req,res,next){
     
     })
 })
-
+//--------------------------------------
 //Rota para buscar um produto individualmente 
 router.get('/:id', function(req, res, next) {
     fs.readFile('./data/produtos.json',"utf-8",(err, data)=> {
