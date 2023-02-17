@@ -56,7 +56,7 @@ O objetivo deste projeto é desenvolver uma API RESTful para o e-commerce Digita
 - As tarefas serão feitas em dupla (exceção Emmanuel) que deverão comunicar-se entre si;
 - Toda a comunicação acontecerá através do [Discord](https://discord.gg/yXaX529U);
 - Todas as tarefas estão no **Trello** com os responsáveis. É importantante que atualizem os status;
-- Enviou o Pull Request? Comunique imediatamente no(s) grupo(s);
+- Enviou o Pull Request? Comunique imediatamente no grupo;
 - **Sem desculpas**. Seja responsável e não deixe a sua atividade para a última hora. Sua dedicação dirá muito sobre o profissional que você se tornará!
 
 ## Atividades iniciais
