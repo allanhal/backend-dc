@@ -41,6 +41,15 @@ O objetivo deste projeto é desenvolver uma API RESTful para o e-commerce Digita
 - Assista ao [vídeo](https://www.youtube.com/watch?v=IMerCpaT_zM);
 - Peça ajuda no(s) grupo(s) ou a(os) colega(s).
 
+## Como executar o Express
+- No Git Bash, dê `npm install` para adicionar os pacotes do node;
+- Após adicionado os pacotes, dê `npm start` para execupar o projeto que estará rodano na `http://localhost:3000/`.
+
+## Como usar o Insomnia
+- Com o programa aberto, vá em `create` +  import from `file`;
+- Selecione o arquivo `Insomnia_2023-02-11.json` que está dentro da "raiz" do projeto;
+- Ao importar o arquivo, vá para o modo `debug` na parte superior.
+
 ## Regras
 
 - A data de entrega é **19/02/2023**;
