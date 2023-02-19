@@ -55,7 +55,7 @@ router.get('/:id', function (req, res, next) {
             if (produtoSelecionado) {
                 res.send(produtoSelecionado)
             } else {
-                res.send(420)
+                res.send(418)
             }
         }
         catch {
@@ -125,7 +125,7 @@ router.delete('/:id', function (req, res, next) {
             const produtoDeletado = produtos.find((produto) => produto.id === id)
             const novosProdutos = produtos.filter((produto) => produto.id !== id)
 
-            fs.writeFileSync('./data/apagado.json', JSON.stringify(produtoDeletado))
+            // fs.writeFileSync('./data/apagado.json', JSON.stringify(produtoDeletado)) 
             fs.writeFileSync('./data/produtos.json', JSON.stringify(novosProdutos))
 
             if (produtoDeletado) { 
