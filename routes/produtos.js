@@ -8,13 +8,13 @@ const { path } = require('../app');
 //ROTA BUSCANDO TODOS OS PRODUTOS DO ARQUIVO LIDO COM O MODULO FS
 router.get('/', function (req, res, next) {
     fs.readFile('./data/produtos.json', "utf-8", (err, data) => {
-        try{
+        try {
             const produtos = JSON.parse(data)
-            res.send(produtos)    
+            res.send(produtos)
         } catch {
             res.send('Ocorreu um erro: ' + err)
         }
-       
+
     })
 
 });
@@ -55,7 +55,7 @@ router.get('/:id', function (req, res, next) {
             if (produtoSelecionado) {
                 res.send(produtoSelecionado)
             } else {
-                res.send("Nenhum produto encontrado para essa especificação")
+                res.send(420)
             }
         }
         catch {
@@ -118,18 +118,23 @@ router.put('/:id', update);
 router.patch('/:id', update);
 router.delete('/:id', function (req, res, next) {
     fs.readFile('./data/produtos.json', "utf8", (err, data) => {
-        const produtos = JSON.parse(data)
-        const id = req.params.id
 
-        const produtoDeletado = produtos.find((produto) => produto.id === id)
-        const novosProdutos = produtos.filter((produto) => produto.id !== id)
+            const produtos = JSON.parse(data)
+            const id = req.params.id
 
-        fs.writeFileSync('./data/produtos.json', JSON.stringify(novosProdutos))
+            const produtoDeletado = produtos.find((produto) => produto.id === id)
+            const novosProdutos = produtos.filter((produto) => produto.id !== id)
 
-        res.send(produtoDeletado)
+            fs.writeFileSync('./data/apagado.json', JSON.stringify(produtoDeletado))
+            fs.writeFileSync('./data/produtos.json', JSON.stringify(novosProdutos))
+
+            if (produtoDeletado) { 
+                res.send(produtoDeletado)
+            } else {
+                res.send(404)
+            }
+    
     })
-    // res.send('Remove produto ' + req.params.id)
-});
-
+})
 
 module.exports = router;

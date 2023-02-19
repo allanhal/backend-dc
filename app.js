@@ -16,6 +16,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use("/", indexRouter);
 app.use("/produtos", produtosRouter);
 app.use("/users",userRouter);
+app.use("/apagado", produtosRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
