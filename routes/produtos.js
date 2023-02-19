@@ -111,9 +111,28 @@ router.post('/', function (req, res, next) {
     })
 });
 
+
+// function para atualizar um produto existente. Pode usar a mesma função tanto para PUT quanto para PATCH, sendo a diferença no corpo da request.
 function update(req, res, next) {
-    res.send('Alterar/Update produto ' + req.params.id)
+    fs.readFile('./data/produtos.json', "utf8", (err, data) => {
+        const produtos = JSON.parse(data)
+        const id = req.params.id
+
+        const produtoAtualizado = produtos.find((produto) => produto.id === id)
+        if (!produtoAtualizado) {
+            res.status(404).send("Produto não encontrado.")
+            return
+        }
+
+        // atualiza o objeto 'produtoAtualizado' como dados do objeto 'req.body'(request)
+        Object.assign(produtoAtualizado, req.body)
+
+        fs.writeFileSync('./data/produtos.json', JSON.stringify(produtos))
+
+        res.send(produtoAtualizado)
+    })
 }
+
 router.put('/:id', update);
 router.patch('/:id', update);
 router.delete('/:id', function (req, res, next) {
