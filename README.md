@@ -39,7 +39,7 @@ Este é um projeto de backend que utiliza Node.js com o framework Express e segu
 
 <ol>
       <li>Clone o repositório em sua máquina local:</li>
-      <pre><code>git clone https://github.com/seu-usuario/nome-do-repositorio.git</code></pre>
+      <pre><code>git clone https://github.com/daviroquedev/backend-dc.git </code></pre>
       <li>Instale as dependências do projeto:</li>
       <pre><code>npm install</code></pre>
       <li>Execute o projeto:</li>
