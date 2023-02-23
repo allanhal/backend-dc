@@ -12,10 +12,16 @@ router.get('/', function(req, res, next) {
 
 
 // Listar produtos por ID Guilherme e Hélio
-router.get('/', function(req, res, next) {
-    res.send('Lista de produtos')
-});
+router.get('/:id', function (req, res, next) {
+    fs.readFile('./data/produtos.json', "utf8", (err, data) => {
+        const produtos = JSON.parse(data)
+        const id = req.params.id
 
+        const produtoProcurado = produtos.find((produto) => produto.id === id)
+
+        res.send(produtoProcurado)
+    })
+});
 
 
 // Criar produtos Deivid e Igor
