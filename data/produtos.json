@@ -1,21 +1,12 @@
 [
   {
     "categoria": "Calçado",
-    "titulo": "Tenis Naike",
-    "descricao": "rapidao",
-    "valor": 100,
-    "desconto": 10,
+    "titulo": "nique",
+    "descricao": "veloz",
+    "valor": 1,
+    "desconto": 10000000,
     "img": "https://loremflickr.com/640/480/abstract",
     "id": "1"
-  },
-  {
-    "categoria": "Sapato",
-    "titulo": "Pumas",
-    "descricao": "Pula altão",
-    "valor": 1,
-    "desconto": 10,
-    "img": "https://loremflickr.com/640/480/abstract",
-    "id": "2"
   },
   {
     "categoria": "Chinelo",
@@ -24,22 +15,31 @@
     "valor": 100,
     "desconto": 10,
     "img": "https://loremflickr.com/640/480/abstract",
+    "id": "2"
+  },
+  {
+    "categoria": "calçado",
+    "titulo": "Pumas",
+    "descricao": "veloz",
+    "valor": 1,
+    "desconto": 10,
+    "img": "https://loremflickr.com/640/480/abstract",
     "id": "3"
   },
   {
     "categoria": "Calçado",
     "titulo": "nique",
-    "descricao": "rapidao",
-    "valor": 10000,
-    "desconto": 10,
+    "descricao": "veloz",
+    "valor": 1,
+    "desconto": 10000000,
     "img": "https://loremflickr.com/640/480/abstract",
-    "id": 4
+    "id": "4"
   },
   {
     "categoria": "Calçado",
     "titulo": "nique",
     "descricao": "rapidao",
     "valor": 10000,
-    "id": 5
+    "id": "5"
   }
 ]
