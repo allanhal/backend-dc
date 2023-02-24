@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var fs = require('fs');
+const { join } = require('path');
 const { path } = require('../app');
 
 
@@ -19,8 +20,21 @@ router.get('/', function(req, res, next) {
 
 
 // Criar produtos Deivid e Igor
-router.post('/', function(req, res, next) {
-    res.send('Criar produto')
+router.post('/novoproduto', function(req, res, next) {
+    fs.readFile('./data/produtos.json',"utf8", (err, data)=>{
+        const produtos = json.parse(data)
+        
+        const maiorId = produtos.reduce((max, obj)=> {
+            return obj.id > max ? obj.id : max ;
+        }, 0);
+        const novoId = parseInt(maiorId) + 1;
+        const produtoNovo = {...req.body };
+
+        produtoNovo.id = novoId;
+        produtos.push(produtoNovo)
+        fs.writeFile('./data/produtos.json', JSON.stringify(produtos))
+        res.send(produtoNovo)
+    })
 });
 
 
