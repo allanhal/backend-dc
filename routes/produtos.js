@@ -12,38 +12,38 @@ router.get('/', function (req, res, next) {
 
 
 // Listar produtos por ID Guilherme e Hélio
-router.get('/:id', getProdutos, (req, res) => {
+//router.get('/:id', getProdutos, (req, res) => {
 
-    res.send(res.produtoProcurado)
+//  res.send(res.produtoProcurado)
 
-})
-
-async function getProdutos(req, res, next) {
-    var id = req.params.id
-    console.log(id);
-    let produtos = ''
-    try {
-        produtos = await produtos.findById(id)
-        if (produtos == null) {
-            return res.status(404).json({ message: 'Produto não encontrado' })
-        }
-    } catch (err) {
-        return res.status(500).json({ message: err.message })
-    }
-    res.programmer = produtos
-    next()
-}
-
-//router.get('/:id', function (req, res, next) {
-//  fs.readFile('./data/produtos.json', "utf8", (err, data) => {
-//    const produtos = JSON.parse(data)
-//  const id = req.params.id
-
-//const produtoProcurado = produtos.find((produto) => produto.id === id)
-
-// res.send(produtoProcurado)
 //})
-//});
+
+//async function getProdutos(req, res, next) {
+//  var id = req.params.id
+// console.log(id);
+// let produtos = ''
+//try {
+//  produtos = await produtos.findById(id)
+//if (produtos == null) {
+//  return res.status(404).json({ message: 'Produto não encontrado' })
+//}
+//} catch (err) {
+//  return res.status(500).json({ message: err.message })
+//}
+//res.programmer = produtos
+//next()
+//}
+
+router.get('/:id', function (req, res, next) {
+    fs.readFile('./data/produtos.json', "utf8", (err, data) => {
+        const produtos = JSON.parse(data)
+        const id = req.params.id
+
+        const produtoProcurado = produtos.find((produto) => produto.id === id)
+
+        res.send(produtoProcurado)
+    })
+});
 
 
 // Criar produtos Deivid e Igor
