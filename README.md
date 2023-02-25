@@ -54,7 +54,7 @@ Este é um projeto de backend que utiliza Node.js com o framework Express e segu
       <li><code>GET /</code>: Retorna uma mensagem de boas-vindas.</li>
       <li><code>GET /produtos </code>: Retorna uma lista de todos os produtos cadastrados.</li>
       <li><code>GET /produtos/:id</code>: Retorna os dados do produto com o ID especificado.</li>
-      <li><code>GET /produtos/search?palavra_chave=&infto=</code>: Retorna os dados do produto com o filtro especificado.</li>
+      <li><code>GET /produtos/search?palavra_chave=&info=</code>: Retorna os dados do produto com o filtro especificado.</li>
       <li><code>POST /produtos</code>: Cria um novo produto.</li>
       <li><code>PUT /produtos/:id</code>: Atualiza os dados do produto com o ID especificado.</li>
       <li><code>DELETE /produtos/:id</code>: Exclui o produto com o ID especificado.</li>
