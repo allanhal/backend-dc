@@ -14,6 +14,7 @@ Este é um projeto de backend que utiliza Node.js com o framework Express e segu
 <li>Ivan Praciano</li>
 <li>Nivea Natalia</li>
 <li>Andre Soares</li>
+<li>Jorge Silva</li>
 
 </ul>
 
