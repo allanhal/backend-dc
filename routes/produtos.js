@@ -145,7 +145,12 @@ router.delete('/:id', function (req, res, next) {
 
         fs.writeFileSync('./data/produtos.json', JSON.stringify(novosProdutos))
 
-        res.send(produtoDeletado)
+        if (produtoDeletado) { 
+            res.send(produtoDeletado)
+        } else {
+            res.send(404)
+        }
+        
     })
     // res.send('Remove produto ' + req.params.id)
 });
