@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "produtos": [
+            {
+                "produto_id": 1,
+                "quantidade": 1
+            },
+            {
+                "produto_id": 2,
+                "quantidade": 4
+            }
+        ],
+        "valorTotal": 0,
+        "desconto": 0
+    },
+    {
+        "id": 2,
+        "produtos": [
+            {
+                "produto_id": 3,
+                "quantidade": 1
+            },
+            {
+                "produto_id": 4,
+                "quantidade": 2
+            }
+        ],
+        "valorTotal": 0,
+        "desconto": 0
+    }
+]
