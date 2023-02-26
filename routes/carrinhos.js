@@ -35,17 +35,21 @@ router.get('/:id/valortotal', (req, res, next) => {
 
         // Calcula o valor total do produto com desconto
         const valorComDesconto = produto.valor * (100 - produto.desconto) / 100;
-        valorFinal = valorComDesconto;
+        console.log("valoorcomdesconto@@", valorComDesconto)
+        valorFinal = valorComDesconto * produtoNoCarrinho.quantidade + valorFinal
+        console.log("carin quantidade", produtoNoCarrinho.quantidade)
+        console.log("OOOOOOOOO", valorFinal)
 
         if (!produto) {
             return res.status(400).send(`Produto não encontrado para o ID ${produtoNoCarrinho.produto_id}`);
         }
     });
 
-    const descontoTotal = carrinho.desconto / 100 * valorFinal;
-    console.log("desconto total", descontoTotal)
-
-    valorFinal -= descontoTotal
+    //const descontoTotal = carrinho.desconto / 100 * valorFinal;
+    console.log("carinho desconto", carrinho.desconto)
+    //console.log("desconto total", descontoTotal)
+    totalDesconto = valorFinal * (carrinho.desconto / 100)
+    valorFinal -= totalDesconto
     res.send(`Valor total do carrinho ${carrinhoId}: R$${valorFinal.toFixed(2)}`);
 });
 
