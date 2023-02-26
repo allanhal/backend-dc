@@ -1,0 +1,26 @@
+[
+    {
+        "nome": "Felipe",
+        "sobrenome": "Antonio",
+        "email": "felipeantonio@gmail.com",
+        "dataNasc": "10/02/1995",
+        "CPF": "100.215.486-45",
+        "id": "1"
+    },
+    {
+        "nome": "Marcos",
+        "sobrenome": "Jr",
+        "email": "marcosjr@gmail.com",
+        "dataNasc": "10/03/1995",
+        "CPF": "100.215.486-45",
+        "id": "2"
+    },
+    {
+        "nome": "Jose",
+        "sobrenome": "Carlos",
+        "email": "josecarlos@gmail.com",
+        "dataNasc": "10/04/1995",
+        "CPF": "100.215.486-45",
+        "id": "3"
+    }
+]
