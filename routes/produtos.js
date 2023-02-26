@@ -17,12 +17,18 @@ router.get('/', function (req, res, next) {
 // Listar produtos por ID Guilherme e Hélio
 router.get('/:id', function (req, res, next) {
     fs.readFile('./data/produtos.json', "utf8", (err, data) => {
-        const produtos = JSON.parse(data)
-        const id = req.params.id
+        try {
+            const produtos = JSON.parse(data)
+            const id = req.params.id
 
-        const produtoProcurado = produtos.find((produto) => produto.id === id)//Encontro o produto procurado na url
+            const produtoProcurado = produtos.find((produto) => produto.id === id)//Encontro o produto procurado na url
 
-        res.send(produtoProcurado)//mostro ele na tela do insmomnia
+            res.send(produtoProcurado)//mostro ele na tela do insmomnia
+        } catch (err) {
+            res.status(err.status)
+            res.send(err.message)
+        }
+
     })
 });
 
@@ -30,20 +36,26 @@ router.get('/:id', function (req, res, next) {
 
 // Criar produtos Deivid e Igor
 router.post('/', function (req, res, next) {
-    fs.readFile('./data/produtos.json', "utf8", (err, data) => { 
-        const produtos = JSON.parse(data)
-        
-        const maiorId = produtos.reduce((max, obj) => { //eu encontro o maiorID para eu acrescentar o novo
-            return obj.id > max ? obj.id : max;         //produto no final do vetor
-        }, 0);
-        const novoId = parseInt(maiorId) + 1;//Crio o novoID para o produto novo
-        const produtoNovo = {...req.body };//Crio o novo produto
+    fs.readFile('./data/produtos.json', "utf8", (err, data) => {
+        try {
+            const produtos = JSON.parse(data)
 
-        produtoNovo.id = novoId; //Fixo o ID do novo produto
-        produtos.push(produtoNovo)//Coloco no vetor
-        fs.writeFileSync('./data/produtos.json', JSON.stringify(produtos))
+            const maiorId = produtos.reduce((max, obj) => { //eu encontro o maiorID para eu acrescentar o novo
+                return obj.id > max ? obj.id : max;         //produto no final do vetor
+            }, 0);
 
-        res.send(produtoNovo)
+            const novoId = parseInt(maiorId) + 1 + "";//Crio o novoID para o produto novo
+            const produtoNovo = req.body;//Crio o novo produto
+            produtoNovo.id = novoId; //Fixo o ID do novo produto
+            produtos.push(produtoNovo)//Coloco no vetor
+            fs.writeFileSync('./data/produtos.json', JSON.stringify(produtos))
+
+            res.send(produtoNovo)
+        } catch (err) {
+            res.status(err.status)
+            res.send(err)
+        }
+
     })
 });
 
@@ -52,17 +64,21 @@ router.post('/', function (req, res, next) {
 // Atualizar produtos André e Rian
 function update(req, res, next) {
     fs.readFile('./data/produtos.json', "utf8", (err, data) => { //Lê o arquivo
-        const produtos = JSON.parse(data)
-        const id = req.params.id //ID que eu quero alterar
+        try {
+            const produtos = JSON.parse(data)
+            const id = req.params.id //ID que eu quero alterar
 
-        const produtoRequisitado = produtos.find((produto) => produto.id === id) //Encontro produto a ser alterado
-        const produtoAlterado = { ...produtoRequisitado, ...req.body };//Faço o "merge" das alterações 
-        produtoAlterado.id = id; //Eu deixo o ID fixo
-        produtos[id-1] = produtoAlterado //Acrescento no vetor produtos o produto alterado
+            const produtoRequisitado = produtos.find((produto) => produto.id === id) //Encontro produto a ser alterado
+            const produtoAlterado = { ...produtoRequisitado, ...req.body };//Faço o "merge" das alterações 
+            produtoAlterado.id = id; //Eu deixo o ID fixo
+            fs.writeFileSync('./data/produtos.json', JSON.stringify(produtos))//Re-escrevo o arquivo com o produto alterado
 
-        fs.writeFileSync('./data/produtos.json', JSON.stringify(produtos))//Re-escrevo o arquivo com o produto alterado
+            res.send(produtoAlterado)//envio o produto alterado na tela do insominia
+        } catch {
+            res.status(err.status)
+            res.send(err.message)
+        }
 
-        res.send(produtoAlterado)//envio o produto alterado na tela do insominia
     })
 }
 router.put('/:id', update);
