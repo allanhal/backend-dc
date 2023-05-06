@@ -1,6 +1,8 @@
+require('dotenv').config()
 const Sequelize = require('sequelize')
-const sequelize = new Sequelize('fs08', 'root', '1234', {
-    host: 'localhost', dialect: 'mysql'
+console.log('process.env', process.env)
+const sequelize = new Sequelize(process.env.DATABASE || 'fs08', process.env.USER || 'root', process.env.PASSWORD || '1234', {
+    host: process.env.HOST || 'localhost', dialect: process.env.DIALECT || 'mysql'
 })
 
 async function auth() {
