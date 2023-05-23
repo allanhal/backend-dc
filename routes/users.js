@@ -59,16 +59,6 @@ router.get("/profile", async function (req, res, next) {
     console.error(err);
     res.status(400).send(error);
   }
-
-  //   jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
-  // 	if (err) {
-  // 	  res.status(500);
-  // 	  res.send({ auth: false, message: "Falha na autenticação" });
-  // 	}
-  // 	req.user = decoded; // retornando o usuario vindo do token
-  // 	console.log(decoded);
-  // 	next();
-  //   });
 });
 
 router.get("/find/:id", async function (req, res, next) {

@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var fs = require("fs");
+const jwt = require("jsonwebtoken");
 
 const db = require("../db");
 
@@ -14,6 +15,43 @@ router.get("/", async function (req, res, next) {
     res.status(404).send({
       erro: "arquivo não encontrado",
     });
+  }
+});
+
+router.get("/pedidos", async function (req, res, next) {
+  try {
+    const auth = req.headers["authorization"];
+    if (!auth) {
+      res.status(401);
+      return res.send({ auth: false, message: "Token não fornecido" });
+    }
+    const token = auth.split(" ")[1];
+    const result = await jwt.verify(token, process.env.JWT_SECRET);
+
+    const carrinho = await db.sequelize.models.carrinho.findOne({
+      where: { usuarioId: result.id },
+    });
+    const carrinhoProdutos = await db.sequelize.models.carrinhoProduto.findAll({
+      where: { carrinhoId: carrinho.id },
+    });
+
+    const produtosDoCarrinho = await Promise.all(
+      carrinhoProdutos.map(async (cp) => {
+        const produto = await db.sequelize.models.produto.findOne({
+          where: { id: cp.produtoId },
+          raw: true,
+        });
+        return {
+          ...produto,
+          quantidade: cp.quantidade,
+        };
+      })
+    );
+
+    res.send(produtosDoCarrinho);
+  } catch (error) {
+    console.error(error);
+    res.status(400).send(error);
   }
 });
 
@@ -37,14 +75,6 @@ router.get("/:id/valortotal", async (req, res, next) => {
       carrinhoId,
     },
   });
-  console.log(
-    await db.sequelize.models.carrinhoProduto.findAll({
-      where: {
-        carrinhoId,
-      },
-      raw: true,
-    })
-  );
 
   const produtosDoCarrinho = await Promise.all(
     carrinhoProduto.map(async (cp) => {
