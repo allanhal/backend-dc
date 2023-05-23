@@ -146,9 +146,3 @@ function main() {
 
 module.exports = { main, sequelize };
 
-// 3 Sequelize
-// 3 Integração
-// 3 Deploy (Render)
-// 1 Teste Unitário
-// 1 Extra (Autenticação, Upload Imagem S3, TiraDuvida)
-// 1 Avaliação

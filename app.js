@@ -1,21 +1,18 @@
-
-
 var createError = require("http-errors"); // lib de tratar errors
 var express = require("express"); // lib do express
 var logger = require("morgan"); // lib lib log (coloca no console o que esta acontecendo no servidor)
 
 var indexRouter = require("./routes/index");
 var produtosRouter = require("./routes/produtos");
-var userRouter = require("./routes/users")
-var carroCompras = require("./routes/carrinhos")
+var userRouter = require("./routes/users");
+var carroCompras = require("./routes/carrinhos");
 var app = express();
 
-var cors = require('cors')
-app.use(cors())
+var cors = require("cors");
+app.use(cors());
 
-const db = require('./db')
-db.main()
-console.log('app.js', db.usuario)
+const db = require("./db");
+db.main();
 
 app.use(logger("dev"));
 app.use(express.json());
