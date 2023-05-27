@@ -29,7 +29,7 @@ router.post("/login", async (req, res) => {
 
     if (usuarioEncontrado) {
       const { id } = usuarioEncontrado;
-      const token = jwt.sign({ id }, process.env.JWT_SECRET);
+      const token = jwt.sign({ id }, process.env.JWT_SECRET,{ expiresIn: 30});
       res.send(token);
       return;
     } else {

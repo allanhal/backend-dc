@@ -5,6 +5,28 @@ var fs = require('fs');
 const db = require('../db');
 const { Op } = require('sequelize');
 
+const multer = require('multer');
+const { v2: cloudinary } = require('cloudinary');
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
+
+// Configuration 
+cloudinary.config({
+    cloud_name: "drbuwibae",
+    api_key: "574653997659613",
+    api_secret: process.env.CLOUDNARY_SECRET
+});
+
+console.log('process.env.CLOUDNARY_SECRET', process.env.CLOUDNARY_SECRET)
+
+const storage = new CloudinaryStorage({
+    cloudinary: cloudinary,
+    params: {
+        folder: 'uploads' // Define o diretório no Cloudinary para armazenar os uploads
+    }
+});
+
+const upload = multer({ storage: storage });
+
 //ROTA BUSCANDO TODOS OS PRODUTOS DO ARQUIVO LIDO COM O MODULO FS
 router.get('/', async function (req, res, next) {
     try {
@@ -129,6 +151,41 @@ router.delete('/:id', async function (req, res, next) {
     catch (err) {
         res.send('Ocorreu um  erro:' + err)
     }
+});
+
+router.post("/imagem/:id", upload.single('imagem'), async (req, res) => {
+    try {
+        // Verifica se um arquivo foi enviado
+        if (!req.file) {
+            return res.status(400).send('Nenhum arquivo foi enviado.');
+        }
+        // Acessa os detalhes do arquivo enviado
+        const file = req.file;
+        // Obtém a URL pública do arquivo no Cloudinary
+        const imageUrl = file.path;
+
+        const bichoUpdatado = await db.sequelize.models.produto.update({ img: imageUrl }, {
+            where: {
+                id: req.params.id
+            }
+        })
+        res.send(bichoUpdatado)
+    } catch (error) {
+
+        res.send(error);
+    }
+
+    // const { id, img } = req.body;
+    // try {
+    //     if (!id || !img) {
+    //         res.status(400).send("Dados incompletos");
+    //         return;
+    //     }
+
+    // } catch (err) {
+    //     console.error(err);
+    //     res.status(400).send(err);
+    // }
 });
 
 
