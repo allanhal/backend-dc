@@ -29,8 +29,8 @@ router.post("/login", async (req, res) => {
 
     if (usuarioEncontrado) {
       const { id } = usuarioEncontrado;
-      const token = jwt.sign({ id }, process.env.JWT_SECRET,{ expiresIn: 30});
-      res.send(token);
+      const token = jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: 30 });
+      res.send({ token });
       return;
     } else {
       res.status(400).send("usuário não encontrado");
